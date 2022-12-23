@@ -1,0 +1,26 @@
+<!-- Customer Product Information -->
+<template>
+
+    <lightning-record-view-form
+            record-id={discountId}
+            object-api-name="Discount__c"
+            class="container"
+    >
+
+        <div class="slds-box slds-theme_default">
+
+            <lightning-output-field field-name="Product_Name__c"></lightning-output-field>
+            <lightning-output-field field-name="Cost_Per_Calendar_Month__c"></lightning-output-field>
+            <lightning-output-field field-name="ATM_Fee_In_Other_Currencies__c"></lightning-output-field>
+            <lightning-output-field field-name="Card_Replacement_Cost__c"></lightning-output-field>
+
+            <!-- show No Data Available message if no Product linked to the Contact-->
+            <template if:true={isShowNoDataMessage}>
+                <div class="slds-align_absolute-center">{noDataMessage}</div>
+            </template>
+            <lightning-spinner if:true={isShowSpinner} size="small"></lightning-spinner>
+
+        </div>
+    </lightning-record-view-form>
+
+</template>
